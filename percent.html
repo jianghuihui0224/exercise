@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百分比进度条</title>
+    <style>
+        #progressBar {
+            width: 500px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+
+        #son {
+            width: 50px;
+            height: 100%;
+            background-color: green;
+        }
+
+        #btn {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="progressBar">
+        <div id="son">10%</div>
+    </div>
+    <button id="btn">点我</button>
+    <script>
+        var btn = document.getElementById('btn')
+        var son = document.getElementById('son')
+        var wid = 50;
+        btn.onclick = function () {
+            var timeId = setInterval(function () {
+                if (wid <= 500) {
+                    wid++
+                    son.style.width = wid + 'px';
+                    son.innerText = parseInt(wid / 500 * 100) + '%';
+                } else {
+                    clearInterval(timeId)
+                }
+            }, 10)
+        }
+    </script>
+</body>
+
+</html>
